@@ -92,7 +92,7 @@ nextQuestion : function(){
 
   // guess choice  html
   $.each(questionOptions, function(index, key){
-    $('#options').append($('<button class="option btn btn-primary btn-lg">'+key+'</button>'));
+    $('#options').append($('<button class="option btn btn-primary btn-lg ml-1">'+key+'</button>'));
   })
 
 },
