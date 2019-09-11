@@ -96,3 +96,21 @@ nextQuestion : function(){
   })
 
 },
+//timer functinos
+  timerRunning : function(){
+    // if timer still has time left and there are still questions left to ask
+    if(trivia.timer > -1 && trivia.currentSet < Object.keys(trivia.questions).length){
+      $('#timer').text(trivia.timer);
+      trivia.timer--;
+        if(trivia.timer === 4){
+          $('#timer').addClass('last-seconds');
+        }
+    }
+    // when time runs out and increment unanswered, run result
+    else if(trivia.timer === -1){
+      trivia.unanswered++;
+      trivia.result = false;
+      clearInterval(trivia.timerId);
+      resultId = setTimeout(trivia.guessResult, 1000);
+      $('#results').html('<h3>Out of time! The answer was '+ Object.values(trivia.answers)[trivia.currentSet] +'</h3>');
+    }
