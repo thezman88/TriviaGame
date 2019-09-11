@@ -43,3 +43,56 @@ var trivia = {
     q6: 'Pam',
     q7: 'The Electric City'
   },
+  // Start Game
+startGame: function(){
+  // game results reset
+  trivia.currentSet = 0;
+  trivia.correct = 0;
+  trivia.incorrect = 0;
+  trivia.unanswered = 0;
+  clearInterval(trivia.timerId);
+
+  // Show the Game
+  $('#game').show();
+
+  //  Empty previous results
+  $('#results').html('');
+
+  // show timer
+  $('#timer').text(trivia.timer);
+
+  // hide start button
+  $('#start').hide();
+
+  $('#remaining-time').show();
+
+  // ask first question
+  trivia.nextQuestion();
+
+},
+//  loop and display questions and answers
+nextQuestion : function(){
+
+  // 15 second timer
+  trivia.timer = 15;
+   $('#timer').removeClass('last-seconds');
+  $('#timer').text(trivia.timer);
+
+  // Control the time
+  if(!trivia.timerOn){
+    trivia.timerId = setInterval(trivia.timerRunning, 1000);
+  }
+
+  // question name value pair
+  var questionContent = Object.values(trivia.questions)[trivia.currentSet];
+  $('#question').text(questionContent);
+
+  // options for the current question
+  var questionOptions = Object.values(trivia.options)[trivia.currentSet];
+
+  // guess choice  html
+  $.each(questionOptions, function(index, key){
+    $('#options').append($('<button class="option btn btn-primary btn-lg">'+key+'</button>'));
+  })
+
+},
