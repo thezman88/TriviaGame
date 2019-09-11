@@ -114,3 +114,22 @@ nextQuestion : function(){
       resultId = setTimeout(trivia.guessResult, 1000);
       $('#results').html('<h3>Out of time! The answer was '+ Object.values(trivia.answers)[trivia.currentSet] +'</h3>');
     }
+    //  show results
+  else if(trivia.currentSet === Object.keys(trivia.questions).length){
+
+    // results
+    $('#results')
+      .html('<h3>"When I discovered YouTube, I didn\'t work for five days. I did nothing. I watched Cookie Monster sing Chocolate Rain about a thousand times."-Michael Scott</h3>'+
+      '<p>Correct: '+ trivia.correct +'</p>'+
+      '<p>Incorrect: '+ trivia.incorrect +'</p>'+
+      '<p>Unaswered: '+ trivia.unanswered +'</p>'+
+      '<p>play again?</p>');
+
+    // hide game sction
+    $('#game').hide();
+
+    // show start button to begin a new game
+    $('#start').show();
+  }
+
+},
