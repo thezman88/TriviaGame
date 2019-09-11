@@ -152,3 +152,15 @@ nextQuestion : function(){
       resultId = setTimeout(trivia.guessResult, 1000);
       $('#results').html('<h3>Correct Answer!</h3>');
     }
+    // else the user picked the wrong option, increment incorrect
+  else{
+    // turn button clicked red for incorrect
+    $(this).addClass('btn-danger').removeClass('btn-primary');
+
+    trivia.incorrect++;
+    clearInterval(trivia.timerId);
+    resultId = setTimeout(trivia.guessResult, 1000);
+    $('#results').html('<h3>Better luck next time! '+ currentAnswer +'</h3>');
+  }
+
+},
