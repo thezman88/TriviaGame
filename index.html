@@ -11,29 +11,39 @@
     <link href="https://fonts.googleapis.com/css?family=BioRhyme&display=swap" rel="stylesheet">
   </head>
   <body>
-    <!-- title  -->
-<div class="container-fluid">
-  <div class="row border mb-4">
-    <div class="col-12 text-center">
-      <h1 id="title"class="display-3">The Office Trivia Game</h1>
+    <div class="container-fluid text-center">
+      <audio controls loop>
+      <source src="assets/TheOfficeTheme Song.mp3" type="audio/mp3" />
+    </audio>
     </div>
-  </div>
-</div>
-<!-- question box -->
-<div class="container">
-  <div class="row  mt-5">
-    <div class="col-10 border">
-      hi
+
+
+  <div class="container">
+    <div class="header text-center clearfix">
+      <h1 class="text-primary">The Office trivia game</h1>
     </div>
-  </div>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container text-center">
+        <div id="game">
+          <h2>The Office Trivia Game</h2>
+          <p id="remaining-time" class="lead">Remaining Time: <span id="timer"></span></p>
+          <p id="question" class="lead"></p>
+        </div>
+        <div id="results">
+        </div>
+      </div>
 
-</div>
+      <div class="row">
+        <div id="choices" class="col text-center">
+          <button id="start" class="btn btn-primary btn-lg ">Start Game</button>
+          <div id="options">
 
+          </div>
 
+        </div>
+      </div>
 
-
-
-
+    </div> <!-- /container -->
 
 <!-- boot strap js -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
